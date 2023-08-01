@@ -3,16 +3,17 @@
 namespace HelloWorld {
     public class Program {
         static void Main(string[] args) {
-            var random = new Random();
-            var passwordLength = 10;
-            var buffer = new char[passwordLength];
+            int count = 0;
+            int minValue = 1;
+            int maxValue = 100;
 
-            for (var i = 0; i < passwordLength; i++) {
-                buffer[i] = (char)('a' + (random.Next(0, 26)));
+            for (int i = 0; i < maxValue; i++) {
+                if (i % 3 == 0) {
+                    count++;
+                }
             }
 
-            var password = new string(buffer);
-            Console.WriteLine(password);
+            Console.WriteLine(count);
         }
     }
 }
