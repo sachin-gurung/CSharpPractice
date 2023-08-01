@@ -3,14 +3,16 @@
 namespace HelloWorld {
     public class Program {
         static void Main(string[] args) {
-            while (true) {
-                Console.Write("Type your name here: ");
-                var name = Console.ReadLine();
+            var random = new Random();
+            var passwordLength = 10;
+            var buffer = new char[passwordLength];
 
-                if (String.IsNullOrWhiteSpace(name)) {
-                    break;
-                }
+            for (var i = 0; i < passwordLength; i++) {
+                buffer[i] = (char)('a' + (random.Next(0, 26)));
             }
+
+            var password = new string(buffer);
+            Console.WriteLine(password);
         }
     }
 }
