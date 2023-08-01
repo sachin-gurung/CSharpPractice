@@ -3,10 +3,13 @@
 namespace HelloWorld {
     public class Program {
         static void Main(string[] args) {
-            string sentence = "My name is Sachin Gurung.";
+            while (true) {
+                Console.Write("Type your name here: ");
+                var name = Console.ReadLine();
 
-            foreach (var letter in sentence) {
-                Console.Write(letter);
+                if (String.IsNullOrWhiteSpace(name)) {
+                    break;
+                }
             }
         }
     }
