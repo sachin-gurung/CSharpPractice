@@ -3,17 +3,15 @@
 namespace HelloWorld {
     public class Program {
         static void Main(string[] args) {
-            int count = 0;
-            int minValue = 1;
-            int maxValue = 100;
+            int number;
+            int result = 1;
+            Console.Write("Enter a number: ");
+            number = Convert.ToByte(Console.ReadLine());
 
-            for (int i = 0; i < maxValue; i++) {
-                if (i % 3 == 0) {
-                    count++;
-                }
+            for (int i = number; i > 0; i--) {
+                result *= i;
             }
-
-            Console.WriteLine(count);
+            Console.WriteLine(result);
         }
     }
 }
