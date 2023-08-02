@@ -3,34 +3,23 @@
 namespace HelloWorld {
     public class Program {
         static void Main(string[] args) {
-<<<<<<< HEAD
+            int randomNumber = new Random().Next(1, 10);
+            int userGuessedNumber;
+            int numberOfChances = 4;
+            Console.WriteLine(randomNumber);
 
-            int sum = 0;
-
-            while (true) {
-
-                Console.Write("Enter a number or \"ok\" to exit:");
-                var input = Console.ReadLine();
-
-                if (input == "ok") {
+            for (int i = 0; i < numberOfChances; i++) {
+                Console.Write("Guess the correct number: ");
+                userGuessedNumber = Convert.ToInt32(Console.ReadLine());
+                if (randomNumber == userGuessedNumber) {
+                    Console.WriteLine("You win");
                     break;
+                } else {
+                    Console.WriteLine("Incorrect");
                 }
-
-                var number = Convert.ToInt32(input);
-                sum += number;
             }
-            Console.WriteLine(sum);
-=======
-            int number;
-            int result = 1;
-            Console.Write("Enter a number: ");
-            number = Convert.ToByte(Console.ReadLine());
 
-            for (int i = number; i > 0; i--) {
-                result *= i;
-            }
-            Console.WriteLine(result);
->>>>>>> SachinSandBox
+            Console.WriteLine("Game over....");
         }
     }
 }
