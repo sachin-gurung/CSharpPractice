@@ -1,33 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace HelloWorld {
     public class Program {
+
+        /*
+         * Write a program and ask the user to enter their name. Use an array to reverse the name and then store the result in a new string. Display the reversed name on the console.
+         */
         static void Main(string[] args) {
-            var nameList = new List<string>();
-            while (true) {
-                Console.Write("Enter user name: ");
-                var name = Console.ReadLine();
-                nameList.Add(name);
-                
-                if (String.IsNullOrWhiteSpace(name)) {
-                    break;
-                }
+            Console.WriteLine("Please enter your name: ");
+            var name = Console.ReadLine();
+
+            var array  = new char [name.Length];
+
+            for (int i = name.Length; i > 0; i--) {
+                array[name.Length-i] = name[i-1];
             }
 
-            if (nameList.Count == 0) {
-                Console.WriteLine("Nobody likes your post");
-            } else if (nameList.Count == 1) {
-                Console.WriteLine("{0} likes your post", nameList[0]);
-            } else if (nameList.Count == 2) {
-                Console.WriteLine("{0} and {1} like your post", nameList[0], nameList[1]);
-            } else {
-                Console.WriteLine("{0}, {1} and others like your post", nameList[0], nameList[1]);
-            }
-
-            //The code below is just to test if it's saving all the names in the list
-            Console.WriteLine("List of names are below:");
-            nameList.ForEach(name => Console.WriteLine(name));
+            var reversedName = new string(array);
+            Console.WriteLine(reversedName);
         }
     }
 }
