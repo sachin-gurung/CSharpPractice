@@ -1,25 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 
 namespace HelloWorld {
     public class Program {
 
         /*
-         * Write a program and ask the user to enter their name. Use an array to reverse the name and then store the result in a new string. Display the reversed name on the console.
+         * Write a program and ask the user to enter 5 numbers. If a number has been previously entered, display an error message and ask the user to re-try. Once the user successfully enters 5 unique numbers, sort them and display the result on the console.
          */
         static void Main(string[] args) {
-            Console.WriteLine("Please enter your name: ");
-            var name = Console.ReadLine();
+            var list = new List<int>();
 
-            var array  = new char [name.Length];
+            while (list.Count < 5) {
+                Console.WriteLine("Type 5 unique numbers:");
+                var input = Convert.ToInt32(Console.ReadLine());
 
-            for (int i = name.Length; i > 0; i--) {
-                array[name.Length-i] = name[i-1];
+                if (list.Contains(input))
+                    Console.WriteLine("Error! Number already in list!");
+                else
+                    list.Add(input);
             }
 
-            var reversedName = new string(array);
-            Console.WriteLine(reversedName);
+            list.Sort();
+            foreach (var number in list) {
+                Console.Write("{0} ", number);
+            }
         }
     }
 }
