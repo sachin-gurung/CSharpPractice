@@ -5,21 +5,35 @@ using System.Net.Http.Headers;
 
 namespace HelloWorld {
     public class Program {
-        /*
-         * Write a program and ask the user to enter 5 numbers. If a number has been previously entered, display an error message and ask the user to re-try. Once the user successfully enters 5 unique numbers, sort them and display the result on the console.
-         */
         static void Main(string[] args)
         {
-            var name = "Sachin Gurung ";
-            var trimmedName = name.Trim();
-            Console.WriteLine("'"+trimmedName+"'");
-            Console.WriteLine(trimmedName.ToUpper());
-            var names = name.Split(' ');
-            foreach (var i in names)
+            var sentence = "This is a very very long sentence. It can be longer than this but I think this is enough";
+            var maxLength = 20;
+
+            if (sentence.Length <maxLength)
             {
-                Console.WriteLine(i);
+                Console.WriteLine(sentence);
+                Console.ReadLine();
             }
-            Console.ReadLine();
+            else
+            {
+                var words = sentence.Split(' ');
+                var totalCharacterCount = 0;
+                var summaryWords = new List<string>();
+
+                foreach (var word in words)
+                {
+                    summaryWords.Add(word);
+
+                    totalCharacterCount += word.Length + 1;
+                    if (totalCharacterCount > maxLength)
+                        break;
+                }
+
+                var summary = String.Join(" ",summaryWords) + "...";
+                Console.WriteLine(summary);
+                Console.ReadLine();
+            }
         }
     }
 }
