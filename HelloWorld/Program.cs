@@ -9,29 +9,42 @@ namespace HelloWorld {
         static void Main(string[] args)
         {
             /*
-             * Write a program and ask the user to enter a few numbers separated by a hyphen. Work out if the numbers are consecutive. For example, if the input is "5-6-7-8-9" or "20-19-18-17-16", display a message: "Consecutive"; otherwise, display "Not Consecutive".
+             * Write a program and ask the user to enter a few numbers separated by a hyphen. If the user simply presses Enter, without supplying an input, exit immediately; otherwise, check to see if there are duplicates. If so, display "Duplicate" on the console.
              */
-            Console.Write("Enter a few numbers (eg 1-2-3-4): ");
+            Console.WriteLine("Enter a few numbers separated by hyphen (eg 1-3-4-5): ");
             var input = Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(input))
+                return;
 
             var numbers = new List<int>();
             foreach (var number in input.Split('-'))
+            {
                 numbers.Add(Convert.ToInt32(number));
+            }
 
             numbers.Sort();
+            var isDuplicate = false;
+            var uniques = new List<int>();
 
-            var isConsecutive = true;
-            for (var i = 1; i < numbers.Count; i++) {
-                if (numbers[i] != numbers[i - 1] + 1) {
-                    isConsecutive = false;
+            foreach (var number in numbers)
+            {
+                if (!uniques.Contains(number))
+                {
+                    uniques.Add(number);
+                }
+                else
+                {
+                    isDuplicate = true;
                     break;
                 }
             }
 
-            var message = isConsecutive ? "Consecutive" : "Not Consecutive";
-            Console.WriteLine(message);
-            Console.ReadLine();
-
+            if (isDuplicate)
+            {
+                Console.WriteLine("Duplicates!");
+                Console.ReadLine();
+            }
         }
     }
 }
