@@ -14,21 +14,22 @@ namespace HelloWorld {
 
         public Animal()
         {
-            Console.WriteLine("I don't have any arguments!!");
+            Console.WriteLine("1. I don't have any arguments!!");
         }
 
         public Animal(string name)
+            :this()
         {
             this._name = name;
-            Console.WriteLine("I have a name and my name is {0}", name);
+            Console.WriteLine("2. I have a name and my name is {0}", name);
         }
         public Animal(string name, bool isCarnivorous, int age)
-            :this()
+            :this(name)
         {
             this._isCarnivorous = isCarnivorous;
             this._age = age;
 
-            Console.WriteLine("{0} is {1} year old!!",name,age);
+            Console.WriteLine("3. {0} is {1} year old!!",name,age);
         }
     }
 }
