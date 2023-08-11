@@ -7,7 +7,8 @@ namespace HelloWorld
 
         static void Main(string[] args)
         {
-            Calculator.Add(new int[] { 1, 2, 3, 4, 5 });
+            //After using params
+            Calculator.Add(1,2,3,4,5);
             Console.WriteLine(Calculator.total);
             Console.ReadLine();
         }
@@ -16,7 +17,9 @@ namespace HelloWorld
     public class Calculator
     {
         public static int total = 0;
-        public static int Add(int[] numbers)
+
+        //Added params below
+        public static int Add(params int[] numbers)
         {
             foreach (var n in numbers)
             {
