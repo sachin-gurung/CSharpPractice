@@ -1,18 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Text;
 
-namespace HelloWorld {
-    public class Program {
+namespace HelloWorld
+{
+    public class Program
+    {
+
         static void Main(string[] args)
         {
-            //Constructors
-            var cat1 = new Animal();
-            var cat2 = new Animal("Mike");
-            var cat3 = new Animal("Salli", true,20);
+            Calculator.Add(new int[] { 1, 2, 3, 4, 5 });
+            Console.WriteLine(Calculator.total);
             Console.ReadLine();
         }
     }
+
+    public class Calculator
+    {
+        public static int total = 0;
+        public static int Add(int[] numbers)
+        {
+            foreach (var n in numbers)
+            {
+                total += n;
+            }
+
+            return total;
+        }
+    }
 }
+
+
