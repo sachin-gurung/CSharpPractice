@@ -2,20 +2,21 @@
 
 namespace HelloWorld {
     public class Customer {
-        public int id;
-        public string name;
+        private int _id; //hide the fields
+        private string _name;
         public readonly List<Order> Orders = new List<Order>();
 
-        public Customer(int ID) {
-            this.id = ID;
+        //get the fields from the methods
+        public void setId(int ID) {
+            this._id = ID;
             }
 
-        public Customer(int ID, string Name)
-            : this(ID) {
-            this.name = Name;
+        public void setName(string Name) {
+            this._name = Name;
             }
 
-
-
+        public string getName() {
+            return this._name;
+            }
         }
     }

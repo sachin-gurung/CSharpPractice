@@ -3,18 +3,11 @@
 namespace HelloWorld {
     public class Program {
         static void Main(string[] args) {
-            var customer1 = new Customer(1, "John");
-            var customer2 = new Customer(2, "Mary");
-            var customer3 = new Customer(3, "Mark");
+            var customer1 = new Customer();
+            customer1.setId(1);
+            customer1.setName("John");
 
-            customer1.Orders.Add(new Order { id = 1, name = "Order 1" });
-            customer1.Orders.Add(new Order { id = 2, name = "Order 2" });
-
-            Console.WriteLine(customer1.Orders.Count); //Output 2
-
-
-
-            Console.WriteLine(customer1.Orders.Count); //Output 0 because the createOrder method creates a new list
+            Console.WriteLine(customer1.getName());
             Console.ReadLine();
             }
         }
