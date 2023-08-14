@@ -4,7 +4,7 @@ namespace HelloWorld {
     public class Customer {
         public int id;
         public string name;
-        public List<Order> Orders = new List<Order>();
+        public readonly List<Order> Orders = new List<Order>();
 
         public Customer(int ID) {
             this.id = ID;
@@ -15,9 +15,7 @@ namespace HelloWorld {
             this.name = Name;
             }
 
-        public void createOrder() {
-            Orders = new List<Order>();
-            }
+
 
         }
     }

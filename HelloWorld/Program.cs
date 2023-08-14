@@ -10,11 +10,11 @@ namespace HelloWorld {
             customer1.Orders.Add(new Order { id = 1, name = "Order 1" });
             customer1.Orders.Add(new Order { id = 2, name = "Order 2" });
 
-            Console.WriteLine(customer1.Orders.Count);
+            Console.WriteLine(customer1.Orders.Count); //Output 2
 
-            customer1.createOrder();
 
-            Console.WriteLine(customer1.Orders.Count);
+
+            Console.WriteLine(customer1.Orders.Count); //Output 0 because the createOrder method creates a new list
             Console.ReadLine();
             }
         }
