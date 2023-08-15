@@ -1,16 +1,14 @@
 ﻿using System;
 
 namespace HelloWorld {
-    public class Program {
-
+    public partial class Program {
         static void Main(string[] args) {
-            var cat1 = new cat();
-            var animal1 = new Animal();
+            var dbMigrator = new DbMigrator(new Logger());
+            var installer = new Installer(new Logger());
 
-            Console.WriteLine(cat1.makeSound());
-            Console.WriteLine(animal1.makeSound());
+            dbMigrator.Migrate();
+            installer.Install();
             Console.ReadLine();
-
             }
         }
     }
