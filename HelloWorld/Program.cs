@@ -1,24 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace HelloWorld {
+    /*
+     * We rarely have to make Generic list. But this is the way to make it. Instead of making a list for each type, we can make a generic list. Instead of making bookList, IntList, ObjectList, we can make a generic list. This way, we can make a list for any type and we don't lose performance because we are not using object type.
+     */
 
-namespace HelloWorld {
-    public class Canvas {                             // Canvas is a class that has a method that takes a list of shapes and draws them.
-        public void DrawShapes(List<Shape> shapes) {
-            foreach (var shape in shapes) {
-                shape.Draw();
-                }
-            }
-        }
-
-    public partial class Program {                    // Program is a class that has a Main method that creates a list of shapes and passes it to the DrawShapes method of the Canvas class.
+    public partial class Program {
         static void Main(string[] args) {
-            var shapes = new List<Shape>();
-            shapes.Add(new Circle());
-            shapes.Add(new Rectangle());
+            var book1 = new Book { Isbn = "1111", Title = "C# Advanced" };
 
-            var canvas = new Canvas();
-            canvas.DrawShapes(shapes);
-            Console.ReadLine();
+            var numbers = new GenericList<int>();
+            numbers.Add(10);
+            numbers.Add(20);
+
+            var books = new GenericList<Book>();
+            books.Add(new Book());
+
+            //System.Collections.Generic.
+
+            var dictionary = new GenericDictionary<string, Book>();
+            dictionary.Add("1234", new Book());
+            dictionary.Add("1235", new Book());
             }
         }
     }
