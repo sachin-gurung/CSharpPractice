@@ -52,11 +52,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Book.cs" />
-    <Compile Include="BookList.cs" />
-    <Compile Include="GenericDictionary.cs" />
-    <Compile Include="GenericList.cs" />
-    <Compile Include="ObjectList.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
